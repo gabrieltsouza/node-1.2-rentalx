@@ -1,8 +1,8 @@
 import { compare } from "bcryptjs";
 import { sign } from "jsonwebtoken";
 import { inject, injectable } from "tsyringe";
-import { AppError } from "../../../../errors/AppError";
-import { IUsersRepository } from "../../repositories/IUsersRepository";
+import { AppError } from "@shared/errors/AppError";
+import { IUsersRepository } from "@modules/accounts/repositories/IUsersRepository";
 
 interface IRequest {
     email: string,
@@ -24,7 +24,7 @@ class AuthenticateUserUseCase {
         private usersRepository: IUsersRepository
     ){}
     async execute({email, password}: IRequest): Promise<IResponse> {
-        // User already exists
+        // User not exist
         const user = await this.usersRepository.findByEmail(email);
         if (!user){
             throw new AppError("Access denied!", 401, __dirname, __filename)
@@ -37,7 +37,7 @@ class AuthenticateUserUseCase {
         // Build jsonwebtoken
         const token = sign({}, "7c0b09d988cdef8f2e84d8dc9b075f35", {
             subject:user.id,
-            expiresIn:"1d"
+            expiresIn:"1h"
         });
 
         const tokenReturn: IResponse = {

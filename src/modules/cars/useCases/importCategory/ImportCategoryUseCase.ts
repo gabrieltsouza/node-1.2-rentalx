@@ -1,9 +1,9 @@
+import { ICategoriesRepository } from "@modules/cars/repositories/ICategoriesRepository";
 import { parse } from "csv-parse";
 import { json } from "express";
 import fs from "fs";
 import { inject, injectable } from "tsyringe";
 
-import { ICategoriesRepository } from "../../repositories/ICategoriesRepository";
 
 interface IImportCategory {
     name: string;
