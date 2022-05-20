@@ -7,6 +7,6 @@ export class AppError {
     constructor(message:string, statusCode=400, dirName:string, fileName:string){
         this.message = message;
         this.statusCode = statusCode;
-        console.log("AppError -> ", message, statusCode, dirName, fileName)
+        //console.log("AppError -> ", message, statusCode, dirName, fileName)
     }
 }
