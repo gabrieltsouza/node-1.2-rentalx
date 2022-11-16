@@ -1,6 +1,6 @@
-import { ICreateUserDTO } from "../../dtos/ICreateUserDTO";
-import { IUpdateUserAvatarDTO } from "../../dtos/IUpdateUserAvatarDTO";
-import { User } from "../../infra/typeorm/entities/User";
+import { ICreateUserDTO } from "@modules/accounts/dtos/ICreateUserDTO";
+import { IUpdateUserAvatarDTO } from "@modules/accounts/dtos/IUpdateUserAvatarDTO";
+import { User } from "@modules/accounts/infra/typeorm/entities/User";
 import { IUsersRepository } from "../IUsersRepository";
 
 class UsersRepositoryInMemory implements IUsersRepository{
@@ -26,7 +26,6 @@ class UsersRepositoryInMemory implements IUsersRepository{
     async updateAvatar(data: IUpdateUserAvatarDTO): Promise<void> {
         throw new Error("Method not implemented.");
     }
-
 }
 
 export {UsersRepositoryInMemory};

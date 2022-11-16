@@ -1,12 +1,10 @@
 # Car registration
 
 **RF** 
-Should be able register a new car
-Should be able to list all categories
+Should be able to register a new car
 
 **RN** 
 Should not be able register a car with an existent license plate 
-Should not be able modify a car license plate 
 Should register a default availability when a new car 
 Should be an administrator to be able to register a new car 
 
